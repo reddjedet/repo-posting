@@ -1,3 +1,7 @@
+        import { inject } from '@vercel/analytics';
+
+        inject();
+
 document.addEventListener('DOMContentLoaded', () => {
     const themeToggleBtn = document.getElementById('theme-toggle');
     const body = document.body;
