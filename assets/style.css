@@ -28,28 +28,66 @@ body {
     margin: 0;
     padding: 20px;
     transition: background-color 0.3s, color 0.3s;
-    /* Nuevo: Contenedor Flexbox para todo el contenido */
     display: flex;
+    /* Hacemos el body un contenedor flex */
     justify-content: center;
-    align-items: flex-start;
-    /* Alinea los elementos al inicio (arriba) */
+    /* Centra los elementos horizontalmente */
     min-height: 100vh;
+
 }
 
 /* Nuevo contenedor para el header y main */
 .content-wrapper {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: center;
+    /* Centra los elementos horizontalmente */
+    align-items: flex-start;
+    /* Alinea los elementos al inicio */
     width: 100%;
-    max-width: 700px;
+    max-width: 900px;
+    /* Aumentamos el ancho máximo para dar espacio a la imagen */
     padding-bottom: 50px;
-    /* Espacio para el footer */
+    margin-top: 50px;
+    /* Para que la imagen y el contenido no toquen el borde superior */
+}
+
+/* Estilos para la imagen lateral */
+.side-image {
+    width: 150px;
+    /* Ancho de la imagen, puedes ajustarlo */
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    
+
 }
 
 main {
     width: 100%;
     max-width: 700px;
+}
+
+/* Media query para dispositivos móviles */
+@media (max-width: 768px) {
+    body {
+        flex-direction: column;
+        /* Apila los elementos verticalmente */
+    }
+
+    .content-wrapper {
+        flex-direction: column;
+        align-items: center;
+        /* Centra los elementos en el modo móvil */
+    }
+
+    .side-image {
+        display: none;
+        /* Oculta la imagen en pantallas pequeñas */
+    }
+
+    footer {
+        position: static;
+    }
 }
 
 header {
