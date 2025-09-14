@@ -28,80 +28,59 @@ body {
     margin: 0;
     padding: 20px;
     transition: background-color 0.3s, color 0.3s;
-    display: flex;
-    /* Hacemos el body un contenedor flex */
-    justify-content: center;
-    /* Centra los elementos horizontalmente */
     min-height: 100vh;
-
 }
 
-/* Nuevo contenedor para el header y main */
 .content-wrapper {
-    display: flex;
-    justify-content: center;
-    /* Centra los elementos horizontalmente */
-    align-items: flex-start;
-    /* Alinea los elementos al inicio */
-    width: 100%;
-    max-width: 900px;
-    /* Aumentamos el ancho máximo para dar espacio a la imagen */
-    padding-bottom: 50px;
-    margin-top: 50px;
-    /* Para que la imagen y el contenido no toquen el borde superior */
-}
-
-/* Estilos para la imagen lateral */
-.side-image {
-    width: 150px;
-    /* Ancho de la imagen, puedes ajustarlo */
-    height: auto;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-    
-
-}
-
-main {
-    width: 100%;
-    max-width: 700px;
-}
-
-/* Media query para dispositivos móviles */
-@media (max-width: 768px) {
-    body {
-        flex-direction: column;
-        /* Apila los elementos verticalmente */
-    }
-
-    .content-wrapper {
-        flex-direction: column;
-        align-items: center;
-        /* Centra los elementos en el modo móvil */
-    }
-
-    .side-image {
-        display: none;
-        /* Oculta la imagen en pantallas pequeñas */
-    }
-
-    footer {
-        position: static;
-    }
+    display: grid;
+    grid-template-columns: 250px 1fr; /* Una columna fija de 250px y una flexible */
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 header {
-    text-align: center;
     margin-bottom: 30px;
     padding: 20px;
     background-color: var(--bg-secondary);
     border-radius: 8px;
     box-shadow: 0 2px 4px var(--shadow-color);
+    text-align: center;
+}
+
+.left-column-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
 }
 
 header h1 {
     font-family: 'Montserrat', sans-serif;
     color: var(--accent-color);
+    margin: 0;
+}
+
+#theme-toggle {
+    background-color: var(--accent-color);
+    color: var(--bg-secondary);
+    border: none;
+    padding: 8px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 0.9em;
+}
+
+.side-image {
+    width: 150px;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+main {
+    width: 100%;
 }
 
 .posts-container {
@@ -141,30 +120,17 @@ header h1 {
     font-style: italic;
 }
 
-#theme-toggle {
-    background-color: var(--accent-color);
-    color: var(--bg-secondary);
-    border: none;
-    padding: 8px 15px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-weight: bold;
-    font-size: 0.9em;
-}
-
 footer {
     text-align: center;
     padding: 20px;
     margin-top: 30px;
     font-size: 0.9em;
     color: var(--text-secondary);
-    /* Posición fija para que no se mueva */
     position: fixed;
     bottom: 0;
     left: 0;
     width: 100%;
     background-color: var(--bg-primary);
-    /* Fija el color de fondo para que no sea transparente */
 }
 
 footer a {
@@ -179,8 +145,29 @@ footer a:hover {
 
 /* Media query para dispositivos móviles */
 @media (max-width: 768px) {
-    body {
+    .content-wrapper {
+        grid-template-columns: 1fr; /* Una sola columna */
+        gap: 0; /* Eliminamos el espacio entre columnas */
+    }
+
+    header {
+        margin-bottom: 20px;
+        padding: 15px;
+    }
+
+    .left-column-content {
+        display: flex; /* Asegura que los elementos de la columna izquierda se muestren */
         flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+    
+    .side-image {
+        display: none; /* Oculta la imagen en dispositivos móviles */
+    }
+    
+    .posts-container {
+        width: 100%;
     }
 
     footer {
