@@ -9,6 +9,14 @@ document.addEventListener('DOMContentLoaded', () => {
         body.className = savedTheme;
     }
 
+    // Actualiza el texto del botón al cargar la página
+    // Esto asegura que el texto sea correcto desde el principio
+    if (body.classList.contains('light-mode')) {
+        themeToggleBtn.textContent = 'Modo Oscuro';
+    } else {
+        themeToggleBtn.textContent = 'Modo Claro';
+    }
+
     // Maneja el clic en el botón
     themeToggleBtn.addEventListener('click', () => {
         // Alterna entre 'light-mode' y 'dark-mode'
