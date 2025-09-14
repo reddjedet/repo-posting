@@ -144,10 +144,10 @@ footer a:hover {
 }
 
 /* Media query para dispositivos móviles */
-@media (max-width: 768px) {
+@media (max-width: 992px) {
     .content-wrapper {
-        grid-template-columns: 1fr; /* Una sola columna */
-        gap: 0; /* Eliminamos el espacio entre columnas */
+        grid-template-columns: 1fr;
+        gap: 0;
     }
 
     header {
@@ -156,14 +156,14 @@ footer a:hover {
     }
 
     .left-column-content {
-        display: flex; /* Asegura que los elementos de la columna izquierda se muestren */
+        display: flex;
         flex-direction: column;
         align-items: center;
         gap: 15px;
     }
     
     .side-image {
-        display: none; /* Oculta la imagen en dispositivos móviles */
+        display: none;
     }
     
     .posts-container {
